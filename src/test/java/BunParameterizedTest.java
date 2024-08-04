@@ -3,10 +3,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.Objects;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 @RunWith(Parameterized.class)
@@ -31,7 +28,7 @@ public class BunParameterizedTest {
     public void testBunNotValidParametersShouldntCreateBun() {
         Bun bun = new Bun(name, price);
 
-        assertThat("Цена булочки принимает отрицательные значения",bun.getPrice() >= 0);
-        assertThat("Название булочки принимает пустую строку", !Objects.equals(bun.getName(), ""));
+        assertTrue("Цена булочки принимает отрицательные значения",bun.getPrice() >= 0);
+        assertNotEquals("Название булочки принимает пустую строку", "", bun.getName());
         }
     }

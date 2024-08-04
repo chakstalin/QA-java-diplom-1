@@ -4,10 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.Objects;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class IngredientParameterizedTest {
@@ -44,13 +41,13 @@ public class IngredientParameterizedTest {
     public void testIngredientLessThanZeroPriceShouldntLessThanZero() {
         Ingredient ingredient = new Ingredient(type, name, price);
 
-        assertThat("Цена ингредиента принимает отрицательные значения",ingredient.getPrice() >= 0);
+        assertTrue("Цена ингредиента принимает отрицательные значения",ingredient.getPrice() >= 0);
     }
 
     @Test
     public void testIngredientEmptyStringNameCantBeEmpty() {
         Ingredient ingredient = new Ingredient(type, name, price);
 
-        assertThat("Название ингредиента принимает пустую строку", !Objects.equals(ingredient.getName(), ""));
+        assertNotEquals("Название ингредиента принимает пустую строку", "", ingredient.getName());
     }
 }

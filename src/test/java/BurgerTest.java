@@ -10,6 +10,8 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
+
+    private static final int EXPECTED_INGREDIENT_COUNT = 1;
     private Burger burger;
 
     @Mock
@@ -42,7 +44,7 @@ public class BurgerTest {
     public void testAddIngredientValidIngredientShouldAddIngredient() {
         burger.addIngredient(ingredient);
 
-        assertEquals("Ингредиент не был добавлен", 1, burger.ingredients.size());
+        assertEquals("Ингредиент не был добавлен", EXPECTED_INGREDIENT_COUNT, burger.ingredients.size());
         assertEquals("Ингредиент не соответствует ожидаемому", ingredient, burger.ingredients.get(0));
     }
 
